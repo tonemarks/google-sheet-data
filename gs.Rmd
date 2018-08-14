@@ -1,0 +1,36 @@
+---
+title: "google-sheet-data"
+author: "Antonio Marks"
+date: "8/12/2018"
+output: html_document
+---
+```{r}
+install.packages("googlesheets")
+install.packages("ggplot2")
+library(googlesheets)
+library(ggplot2)
+(my_sheets <- gs_ls())
+survey <- gs_key("1J5eb3PrTuwHV2vlp1fLY3LeWOnhtgO6wJy2sNmgJKKU")
+data <- survey %>%
+  gs_read(ws = "Sheet1")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+ggplot(survey, aes())
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
